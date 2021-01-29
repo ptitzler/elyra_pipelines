@@ -1,0 +1,234 @@
+{
+  "doc_type": "pipeline",
+  "version": "3.0",
+  "json_schema": "http://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json",
+  "id": "93689941-7999-4c8b-a25d-2352c1ee161b",
+  "primary_pipeline": "99c480df-d768-49ca-b444-9b6aa01b15f2",
+  "pipelines": [
+    {
+      "id": "99c480df-d768-49ca-b444-9b6aa01b15f2",
+      "nodes": [
+        {
+          "id": "5a621c7b-1afa-49a3-9ed3-08b7e2cfd849",
+          "type": "execution_node",
+          "op": "execute-notebook-node",
+          "app_data": {
+            "filename": "notebooks/evaluate.ipynb",
+            "runtime_image": "quay.io/ptitzler/pandas:1.1.4",
+            "env_vars": [],
+            "include_subdirectories": false,
+            "outputs": [
+              "eval_output.txt"
+            ],
+            "dependencies": [
+              "skip_kernel_extension.py"
+            ],
+            "invalidNodeError": null,
+            "ui_data": {
+              "label": "evaluate.ipynb",
+              "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
+              "x_pos": 125.18795776367188,
+              "y_pos": 263.27735900878906,
+              "description": "Notebook file"
+            }
+          },
+          "inputs": [
+            {
+              "id": "inPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Input Port"
+                }
+              }
+            }
+          ],
+          "outputs": [
+            {
+              "id": "outPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Output Port"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "81497516-6ce7-4e9a-87e4-095a4bb2dc47",
+          "type": "execution_node",
+          "op": "execute-notebook-node",
+          "app_data": {
+            "filename": "notebooks/branch_2_notebook.ipynb",
+            "runtime_image": "quay.io/ptitzler/pandas:1.1.4",
+            "env_vars": [],
+            "include_subdirectories": false,
+            "outputs": [],
+            "dependencies": [
+              "skip_kernel_extension.py"
+            ],
+            "invalidNodeError": null,
+            "ui_data": {
+              "label": "branch_2_notebook.ipynb",
+              "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
+              "x_pos": 414.857666015625,
+              "y_pos": 363.3740692138672,
+              "description": "Notebook file"
+            }
+          },
+          "inputs": [
+            {
+              "id": "inPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Input Port"
+                }
+              },
+              "links": [
+                {
+                  "id": "b59359c2-2a58-4025-9d9a-f5da60b7dcb3",
+                  "node_id_ref": "5a621c7b-1afa-49a3-9ed3-08b7e2cfd849",
+                  "port_id_ref": "outPort"
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "id": "outPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Output Port"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "dfd2faae-de08-43c7-b064-12b2787cc407",
+          "type": "execution_node",
+          "op": "execute-notebook-node",
+          "app_data": {
+            "filename": "notebooks/branch_1_notebook.ipynb",
+            "runtime_image": "quay.io/ptitzler/pandas:1.1.4",
+            "env_vars": [],
+            "include_subdirectories": false,
+            "outputs": [],
+            "dependencies": [
+              "skip_kernel_extension.py"
+            ],
+            "invalidNodeError": null,
+            "ui_data": {
+              "label": "branch_1_notebook.ipynb",
+              "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
+              "x_pos": 417.7901306152344,
+              "y_pos": 163.85579681396484,
+              "description": "Notebook file"
+            }
+          },
+          "inputs": [
+            {
+              "id": "inPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Input Port"
+                }
+              },
+              "links": [
+                {
+                  "id": "ecb36a9b-80f4-42b1-98ad-5d1ef02d8f8c",
+                  "node_id_ref": "5a621c7b-1afa-49a3-9ed3-08b7e2cfd849",
+                  "port_id_ref": "outPort"
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "id": "outPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Output Port"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "app_data": {
+        "ui_data": {
+          "comments": [
+            {
+              "id": "66bdd29f-22bf-419b-a8a8-3b67b98a7031",
+              "x_pos": 55,
+              "y_pos": 111,
+              "width": 175,
+              "height": 42,
+              "class_name": "d3-comment-rect",
+              "content": "Produces a value between 0 and 10.",
+              "associated_id_refs": [
+                {
+                  "node_ref": "5a621c7b-1afa-49a3-9ed3-08b7e2cfd849"
+                }
+              ]
+            },
+            {
+              "id": "d6c7f1cf-f9d8-480e-87df-2198173f68e4",
+              "x_pos": 340,
+              "y_pos": 51,
+              "width": 175,
+              "height": 42,
+              "class_name": "d3-comment-rect",
+              "content": "Executes if value <= 5",
+              "associated_id_refs": [
+                {
+                  "node_ref": "dfd2faae-de08-43c7-b064-12b2787cc407"
+                }
+              ]
+            },
+            {
+              "id": "39b86c69-7f09-4946-a9e9-352e257cacfe",
+              "x_pos": 326,
+              "y_pos": 470,
+              "width": 175,
+              "height": 42,
+              "class_name": "d3-comment-rect",
+              "content": "Executes if value > 5",
+              "associated_id_refs": [
+                {
+                  "node_ref": "81497516-6ce7-4e9a-87e4-095a4bb2dc47"
+                }
+              ]
+            }
+          ]
+        },
+        "version": 3
+      },
+      "runtime_ref": ""
+    }
+  ],
+  "schemas": []
+}
