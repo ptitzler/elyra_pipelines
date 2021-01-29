@@ -21,7 +21,7 @@
               "eval_output.txt"
             ],
             "dependencies": [
-              "skip_kernel_extension.py"
+              null
             ],
             "invalidNodeError": null,
             "ui_data": {
